@@ -13,6 +13,7 @@ import {
 import EditCard from "./EditCard";
 import CopyCard from "./CopyCard";
 import PreviewCard from "./PreviewCard";
+import { toast } from "sonner";
 
 // ScraperForm Component
 function ScraperForm({ url, setUrl, loading, errorMsg, handleSubmit }) {
@@ -116,8 +117,10 @@ export default function Scraper() {
       // only set meta if something is found
       if (data.title || data.description || data.image) {
         setMeta(data);
+        toast.success("Successfully fetched all the meta data")
       } else {
         setErrorMsg("No meta tags found for this URL");
+        toast.error("No meta tags found")
       }
     } catch (err) {
       setErrorMsg(err.message || "Failed to fetch");

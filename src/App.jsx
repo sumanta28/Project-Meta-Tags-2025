@@ -18,6 +18,7 @@ import React from "react";
 import { Container, Box } from "@mui/material";
 import Scraper from "./components/Scraper";
 import ResponsiveAppBar from "./components/Navbar";
+import { Toaster } from "sonner";
 
 export default function App() {
   return (
@@ -47,6 +48,7 @@ export default function App() {
       <Container sx={{ mt: 4 }}>
         <Scraper />
       </Container>
+       <Toaster richColors position="top-right" />
     </Box>
   );
 }
