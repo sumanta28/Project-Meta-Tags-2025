@@ -103,12 +103,21 @@ function parseMeta(htmlString, baseUrl) {
   return { title, description, image, canonical, baseUrl };
 }
 
+// async function fetchPage(url) {
+//   const encoded = encodeURIComponent(url);
+//   const proxy = `https://api.allorigins.win/raw?url=${encoded}`;
+//   const res = await axios.get(proxy, { responseType: "text" });
+//   return res.data;
+// }
+
 async function fetchPage(url) {
   const encoded = encodeURIComponent(url);
-  const proxy = `https://api.allorigins.win/raw?url=${encoded}`;
+  // switched from allorigins to codetabs to avoid CORS issues
+  const proxy = `https://api.codetabs.com/v1/proxy?quest=${encoded}`;
   const res = await axios.get(proxy, { responseType: "text" });
   return res.data;
 }
+
 export default function Scraper() {
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
