@@ -112,7 +112,6 @@ function parseMeta(htmlString, baseUrl) {
 
 async function fetchPage(url) {
   const encoded = encodeURIComponent(url);
-  // switched from allorigins to codetabs to avoid CORS issues
   const proxy = `https://api.codetabs.com/v1/proxy?quest=${encoded}`;
   const res = await axios.get(proxy, { responseType: "text" });
   return res.data;
