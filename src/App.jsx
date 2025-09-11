@@ -7,7 +7,7 @@ import { Toaster } from "sonner";
 export default function App() {
   return (
     <Box sx={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
-      {/* Video Background */}
+    
       <video
         autoPlay
         loop
@@ -27,7 +27,6 @@ export default function App() {
         Your browser does not support the video tag.
       </video>
 
-      {/* Foreground Content */}
       <ResponsiveAppBar />
       <Container sx={{ mt: 4 }}>
         <Scraper />
